@@ -11,7 +11,7 @@
 
 ## Description
 
-Algolia integration settings page for Enso UI.
+Algolia integration settings page module for Enso UI.
 
 ## Installation
 
@@ -28,6 +28,7 @@ This package is also available through the full `enso-ui` workspace bundle.
 - exports the settings page used to manage Algolia integration credentials
 - wraps the backend-driven Enso form contract exposed by the Laravel package
 - refreshes the page-scoped form instance after the initial create flow so subsequent updates stay bound to the created settings record
+- ships the integration route module consumed by the Enso router map
 
 ## Usage
 
@@ -57,6 +58,23 @@ Events:
 
 Methods:
 - Internally bumps the local key after the first submit when no `settings` route param exists.
+
+## Routes
+
+### `integrations/algolia/settings`
+
+Route name: `integrations.algolia.settings.index`
+
+Page:
+- `src/bulma/pages/integrations/settings/Index`
+
+The package ships a nested integration route group under `integrations/algolia/` and exposes the settings page through its only child route.
+
+## Companion Backend Package
+
+- [`laravel-enso/algolia`](https://docs.laravel-enso.com/backend/algolia.html) [↗](https://github.com/laravel-enso/algolia)
+
+The frontend page depends on the backend package for the settings form definition, persistence, and the integration routes consumed by the Enso shell.
 
 ## Depends On
 
